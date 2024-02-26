@@ -6,16 +6,10 @@ user_private_router = Router()
 
 @user_private_router.message(CommandStart())
 async def start_cmd(message: types.Message):
-    await message.answer("hayuski")
+    await message.answer("Привет, я виртуальный помощник")
 
 
-@user_private_router.message()
+@user_private_router.message(Command('menu'))
 async def start_cmd(message: types.Message):
-    text = message.text
+    await  message.answer("Вот Меню")
 
-    if text in ['Привет', 'hi', 'Hello']:
-        await message.answer('Хаюшки')
-    elif text in ['Bye', 'Пока']:
-        await message.answer('Покусики')
-    else:
-        await message.answer(message.text)
